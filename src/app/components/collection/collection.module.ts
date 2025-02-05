@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RedsToolbarComponent } from '../reds-toolbar/reds-toolbar.component';
 import { PhotoComponent } from './photo/photo.component';
 import { CollectionRoutingModule } from './collection-routing.module';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [CollectionComponent, PhotoComponent],
@@ -20,7 +21,8 @@ import { CollectionRoutingModule } from './collection-routing.module';
     MatProgressBarModule,
     MatCardModule,
     MatIconModule,
-    RedsToolbarComponent
+    RedsToolbarComponent,
+    TranslatePipe
   ],
   exports: [CollectionComponent]
 })

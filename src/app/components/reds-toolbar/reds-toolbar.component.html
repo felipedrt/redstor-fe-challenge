@@ -1,3 +1,12 @@
-<mat-toolbar>
+<mat-toolbar style="display: flex; justify-content: space-between; align-items: baseline">
   <span>{{ title }}</span>
+  <div>
+    <mat-form-field>
+      <mat-label>{{ 'language' | translate }}</mat-label>
+      <select (change)="onSelectChange($event)" matNativeControl>
+        <option value="pt">pt</option>
+        <option selected value="en">en</option>
+      </select>
+    </mat-form-field>
+  </div>
 </mat-toolbar>

@@ -1,0 +1,14 @@
+{
+  "projectTitle": "Desafio Frontend Redstor",
+  "language": "Idioma",
+  "breadcrumb": {
+    "collections": "Coleções",
+    "collection": "Coleção",
+    "photo": "Foto"
+  },
+  "likes": "Curtidas",
+  "like": "Curtida",
+  "views": "Visualizações",
+  "view": "Visualização",
+  "noPhotos": "Nenhuma imagem disponível"
+}

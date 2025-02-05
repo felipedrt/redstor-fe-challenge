@@ -22,11 +22,11 @@
               <!-- <p>{{ photo.description.charAt(0).toUpperCase() }}{{ photo.description.slice(1) }}</p> -->
             </div>
             <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="end">
-              <p fxLayoutAlign="center">
-                <mat-icon inline>favorite</mat-icon>
-                {{ photo.likes }} likes &nbsp;|&nbsp;&nbsp;
-                <mat-icon inline>visibility</mat-icon>
-                {{ photo.views }} views
+              <p fxLayoutAlign="center" class="flex items-center">
+                <mat-icon inline style="padding-right: 10px">favorite</mat-icon>
+                {{ photo.likes }} {{ (photo.likes == 1 ? 'like' : 'likes') | translate }} &nbsp;|&nbsp;&nbsp;
+                <mat-icon style="padding-right: 10px" inline>visibility</mat-icon>
+                {{ photo.views }} {{ (photo.views == 1 ? 'view' : 'views') | translate }}
               </p>
             </div>
           </div>

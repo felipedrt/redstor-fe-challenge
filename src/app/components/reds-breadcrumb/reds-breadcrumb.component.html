@@ -1,8 +1,8 @@
 <div class="breadcrumbs">
   @for (breadcrumb of breadcrumbs$ | async; track breadcrumb; let last = $last) { @if (!last) {
-  <a [routerLink]="breadcrumb.url">{{ breadcrumb.text }}</a>
+  <a [routerLink]="breadcrumb.url">{{ breadcrumb.text | translate }}</a>
   } @if(last) {
-  <span class="breadcrumb-active">{{ breadcrumb.text }}</span>
+  <span class="breadcrumb-active">{{ breadcrumb.text | translate }}</span>
   } @if(!last) {
   <span class="breadcrumb-separator">></span>
   } }

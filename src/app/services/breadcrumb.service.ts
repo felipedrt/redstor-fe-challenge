@@ -9,15 +9,15 @@ interface IBreadcrumb {
 
 @Injectable({ providedIn: 'root' })
 export class BreadcrumbService {
-  private HOMEPAGE_BRADCRUMB = 'Collections';
-  private breadcrumbsSubject = new BehaviorSubject<IBreadcrumb[]>([{ text: 'Collections', url: '/' }]);
+  private HOMEPAGE_BRADCRUMB = 'breadcrumb.collections';
+  private breadcrumbsSubject = new BehaviorSubject<IBreadcrumb[]>([{ text: this.HOMEPAGE_BRADCRUMB, url: '/' }]);
   breadcrumbs$ = this.breadcrumbsSubject.asObservable();
   // breadcrumbs: IBreadcrumb[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       const breadcrumbs = this.createBreadcrumbs(this.activatedRoute);
-      this.breadcrumbsSubject.next([{ text: 'Collections', url: '/' }, ...breadcrumbs]);
+      this.breadcrumbsSubject.next([{ text: this.HOMEPAGE_BRADCRUMB, url: '/' }, ...breadcrumbs]);
     });
   }
 
@@ -33,7 +33,7 @@ export class BreadcrumbService {
     }
 
     const text = child.snapshot.data['breadcrumb'];
-    if (text && text !== 'Collections') {
+    if (text && text !== this.HOMEPAGE_BRADCRUMB) {
       breadcrumbs.push({ text, url });
     }
 

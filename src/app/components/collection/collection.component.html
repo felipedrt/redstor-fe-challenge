@@ -4,18 +4,21 @@
   </div>
 
   <ng-template #gallery>
-    <div class="gallery">
-      <ng-container *ngFor="let photo of photos$ | async">
-        <mat-card class="gallery-item thumbnails" (click)="handleGotoPhoto(photo)">
+    <div class="gallery" *ngIf="photos$ | async as photos">
+      <ng-container *ngIf="photos.length > 0; else noPhotos">
+        <mat-card *ngFor="let photo of photos" class="gallery-item thumbnails" (click)="handleGotoPhoto(photo)">
           <img mat-card-image [src]="photo.urls.small" [alt]="photo.alt_description" />
           <mat-card-content fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
-            <p>
-              <mat-icon inline>favorite</mat-icon>
-              {{ photo.likes }} likes
+            <p class="flex items-center">
+              <mat-icon inline style="padding-right: 10px">favorite</mat-icon>
+              {{ photo.likes }} {{ (photo.likes == 1 ? 'like' : 'likes') | translate }}
             </p>
           </mat-card-content>
         </mat-card>
       </ng-container>
     </div>
+    <ng-template #noPhotos>
+      <span class="no-photos">{{ 'noPhotos' | translate }}</span>
+    </ng-template>
   </ng-template>
 </div>

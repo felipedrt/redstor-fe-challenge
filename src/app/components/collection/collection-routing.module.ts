@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'photo/:photoId',
     component: PhotoComponent,
-    data: { breadcrumb: 'Photo' }
+    data: { breadcrumb: 'breadcrumb.photo' }
   }
 ];
 

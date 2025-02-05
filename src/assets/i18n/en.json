@@ -1,0 +1,14 @@
+{
+  "projectTitle": "Redstor FE Challenger",
+  "language": "Language",
+  "breadcrumb": {
+    "collections": "Collections",
+    "collection": "Collection",
+    "photo": "Photo"
+  },
+  "likes": "Likes",
+  "like": "Like",
+  "views": "Views",
+  "view": "View",
+  "noPhotos": "No photos available"
+}

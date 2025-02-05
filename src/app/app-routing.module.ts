@@ -7,13 +7,13 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     data: {
-      breadcrumb: 'Collections'
+      breadcrumb: 'breadcrumb.collections'
     }
   },
   {
     path: 'collection/:collectionId',
     loadChildren: () => import('./components/collection/collection.module').then(m => m.CollectionModule),
-    data: { breadcrumb: 'Collection' }
+    data: { breadcrumb: 'breadcrumb.collection' }
   },
   {
     path: '**',
