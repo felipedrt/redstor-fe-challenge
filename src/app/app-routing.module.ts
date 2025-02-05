@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent, CollectionComponent, PhotoComponent } from './components';
+import { HomeComponent } from './components';
 
-// toDo How could we improve this routing?
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'collection/:collectionId', component: CollectionComponent },
-  { path: 'collection/:collectionId/photo/:photoId', component: PhotoComponent }
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      breadcrumb: 'Collections'
+    }
+  },
+  {
+    path: 'collection/:collectionId',
+    loadChildren: () => import('./components/collection/collection.module').then(m => m.CollectionModule),
+    data: { breadcrumb: 'Collection' }
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

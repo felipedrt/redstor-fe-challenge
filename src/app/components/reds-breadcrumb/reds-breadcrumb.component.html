@@ -1,0 +1,9 @@
+<div class="breadcrumbs">
+  @for (breadcrumb of breadcrumbs$ | async; track breadcrumb; let last = $last) { @if (!last) {
+  <a [routerLink]="breadcrumb.url">{{ breadcrumb.text }}</a>
+  } @if(last) {
+  <span class="breadcrumb-active">{{ breadcrumb.text }}</span>
+  } @if(!last) {
+  <span class="breadcrumb-separator">></span>
+  } }
+</div>
