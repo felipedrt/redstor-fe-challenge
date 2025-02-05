@@ -11,6 +11,14 @@
       </mat-card-content>
     </mat-card>
     }
+    <mat-paginator
+      (page)="navigate($event)"
+      [length]="100"
+      [pageSize]="pageSize"
+      [pageIndex]="pageIndex - 1"
+      [pageSizeOptions]="[3, 6, 12, 30]"
+      aria-label="Select page"
+    ></mat-paginator>
   </div>
   }
 </div>

@@ -12,9 +12,9 @@ export class CollectionsEffects {
   loadCollections$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CollectionsActions.loadCollections),
-      switchMap(() =>
+      switchMap(({ page, perPage }) =>
         this.unsplash
-          .listCollections()
+          .listCollections(page, perPage)
           .pipe(
             map(result =>
               result.type === 'success'
