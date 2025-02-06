@@ -21,8 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@environments/*": ["src/environments/*"]
+      "@app/*": ["apps/redstor-fe-challenge/src/*"],
+      "@environments/*": ["apps/redstor-fe-challenge/src/environments/*"]
     }
   },
   "angularCompilerOptions": {

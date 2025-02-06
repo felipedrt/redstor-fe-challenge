@@ -4,7 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { ICollection } from '@app/interfaces';
 import { CollectionsFacade, CollectionsSelectors } from '@app/store';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
