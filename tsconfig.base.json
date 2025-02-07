@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["apps/redstor-fe-challenge/src/*"],
+      "@environments/*": ["apps/redstor-fe-challenge/src/environments/*"],
+      "lib-ui": ["lib-ui/src/index.ts"]
+    },
+    "skipLibCheck": true
+  }
+}

@@ -4,14 +4,16 @@
   }@else {
   <div class="gallery">
     @for (collection of collections$ | async; track collection) {
-    <mat-card class="gallery-item thumbnails" [routerLink]="['/collection', collection.id]">
-      <img mat-card-image [src]="collection.cover_photo.urls.small" [alt]="collection.cover_photo.description" />
-      <mat-card-content>
-        <p class="title">{{ collection.title }}</p>
-      </mat-card-content>
-    </mat-card>
+    <redsui-card
+      classList="gallery-item thumbnails"
+      [cardTitle]="collection.title"
+      [imgSrc]="collection.cover_photo.urls.small"
+      [imgDescription]="collection.cover_photo.description"
+      (cardClick)="redirect(collection.id)"
+    ></redsui-card>
     }
     <mat-paginator
+      style="margin-top: 24px"
       (page)="navigate($event)"
       [length]="100"
       [pageSize]="pageSize"

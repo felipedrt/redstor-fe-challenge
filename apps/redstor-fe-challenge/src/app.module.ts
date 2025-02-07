@@ -11,12 +11,12 @@ import { CollectionsEffects, metaReducers, reducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '@environments/environment';
-import { RedsToolbarComponent } from './components/reds-toolbar/reds-toolbar.component';
-import { RedsBreadcrumbComponent } from './components/reds-breadcrumb/reds-breadcrumb.component';
 import { CollectionModule } from './components/collection/collection.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { RedsBreadcrumbComponent } from 'lib-ui/src/lib/lib-ui/reds-breadcrumb/reds-breadcrumb.component';
+import { RedsToolbarComponent } from 'lib-ui/src/lib/lib-ui/reds-toolbar/reds-toolbar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

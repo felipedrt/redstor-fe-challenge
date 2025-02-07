@@ -1,0 +1,13 @@
+<mat-card [class]="classList" (click)="onCardClick()">
+  <img mat-card-image [src]="imgSrc" [alt]="imgDescription" />
+  <mat-card-content>
+    @if(haveLikes) {
+    <p class="flex items-center">
+      <mat-icon inline style="padding-right: 10px">favorite</mat-icon>
+      {{ likes }} {{ (likes == 1 ? 'like' : 'likes') | translate }}
+    </p>
+    }@else {
+    <p class="title">{{ cardTitle }}</p>
+    }
+  </mat-card-content>
+</mat-card>

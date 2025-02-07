@@ -6,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CollectionComponent } from './collection.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RedsToolbarComponent } from '../reds-toolbar/reds-toolbar.component';
 import { PhotoComponent } from './photo/photo.component';
 import { CollectionRoutingModule } from './collection-routing.module';
 import { TranslatePipe } from '@ngx-translate/core';
+import { RedsCardComponent, RedsCardPhotoComponent, RedsToolbarComponent } from 'lib-ui';
 
 @NgModule({
   declarations: [CollectionComponent, PhotoComponent],
@@ -22,7 +22,9 @@ import { TranslatePipe } from '@ngx-translate/core';
     MatCardModule,
     MatIconModule,
     RedsToolbarComponent,
-    TranslatePipe
+    TranslatePipe,
+    RedsCardComponent,
+    RedsCardPhotoComponent
   ],
   exports: [CollectionComponent]
 })

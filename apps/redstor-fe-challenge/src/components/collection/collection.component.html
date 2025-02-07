@@ -6,15 +6,16 @@
   <ng-template #gallery>
     <div class="gallery" *ngIf="photos$ | async as photos">
       <ng-container *ngIf="photos.length > 0; else noPhotos">
-        <mat-card *ngFor="let photo of photos" class="gallery-item thumbnails" (click)="handleGotoPhoto(photo)">
-          <img mat-card-image [src]="photo.urls.small" [alt]="photo.alt_description" />
-          <mat-card-content fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
-            <p class="flex items-center">
-              <mat-icon inline style="padding-right: 10px">favorite</mat-icon>
-              {{ photo.likes }} {{ (photo.likes == 1 ? 'like' : 'likes') | translate }}
-            </p>
-          </mat-card-content>
-        </mat-card>
+        <div *ngFor="let photo of photos" style="margin-top: 10px">
+          <redsui-card
+            classList="gallery-item thumbnails"
+            [imgSrc]="photo.urls.small"
+            [imgDescription]="photo.alt_description"
+            [haveLikes]="true"
+            [likes]="photo.likes"
+            (cardClick)="handleGotoPhoto(photo)"
+          ></redsui-card>
+        </div>
       </ng-container>
     </div>
     <ng-template #noPhotos>

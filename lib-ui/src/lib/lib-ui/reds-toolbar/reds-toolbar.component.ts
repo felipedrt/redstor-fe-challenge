@@ -5,7 +5,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 @Component({
-  selector: 'app-reds-toolbar',
+  selector: 'redsui-toolbar',
   standalone: true,
   imports: [MatToolbar, MatFormFieldModule, MatInputModule, MatSelectModule, TranslatePipe],
   templateUrl: './reds-toolbar.component.html'

@@ -5,35 +5,9 @@
 
   <ng-template #photoDescription>
     <div class="gallery" fxLayout.sm="column">
-      <mat-card *ngIf="photo$ | async as photo" class="gallery-item" style="cursor: default">
-        <mat-card-header>
-          <img mat-card-avatar [src]="photo.user.profile_image.medium" style="height: 48px; width: 48px" />
-          <mat-card-title>{{ photo.user.first_name }} {{ photo.user.last_name }}</mat-card-title>
-          <mat-card-subtitle *ngIf="photo.user.location">
-            <mat-icon inline>where_to_vote</mat-icon>
-            {{ photo.user.location }}
-          </mat-card-subtitle>
-        </mat-card-header>
-
-        <mat-card-content>
-          <div>
-            <div>
-              <p>{{ photo.description }}</p>
-              <!-- <p>{{ photo.description.charAt(0).toUpperCase() }}{{ photo.description.slice(1) }}</p> -->
-            </div>
-            <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="end">
-              <p fxLayoutAlign="center" class="flex items-center">
-                <mat-icon inline style="padding-right: 10px">favorite</mat-icon>
-                {{ photo.likes }} {{ (photo.likes == 1 ? 'like' : 'likes') | translate }} &nbsp;|&nbsp;&nbsp;
-                <mat-icon style="padding-right: 10px" inline>visibility</mat-icon>
-                {{ photo.views }} {{ (photo.views == 1 ? 'view' : 'views') | translate }}
-              </p>
-            </div>
-          </div>
-        </mat-card-content>
-
-        <img mat-card-image style="max-height: 400px; max-width: 600px" [src]="photo.urls.full" [alt]="photo.alt_description" />
-      </mat-card>
+      <div *ngIf="photo$ | async as photo">
+        <redsui-card-photo [photo]="photo"></redsui-card-photo>
+      </div>
     </div>
   </ng-template>
 </div>

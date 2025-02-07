@@ -10,7 +10,6 @@ import { Observable, map, startWith, switchMap } from 'rxjs';
 })
 export class PhotoComponent {
   private readonly unsplashService: UnsplashService = inject(UnsplashService);
-  private readonly router: Router = inject(Router);
   private readonly activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   readonly photo$: Observable<IPhoto | null> = this.activatedRoute.params.pipe(

@@ -1,0 +1,70 @@
+{
+  "name": "lib-ui",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib-ui/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "lib-ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "lib-ui/.storybook",
+        "browserTarget": "lib-ui:build-storybook",
+        "compodoc": false,
+        "styles": ["apps/redstor-fe-challenge/src/sass/main.scss"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/lib-ui",
+        "configDir": "lib-ui/.storybook",
+        "browserTarget": "lib-ui:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c lib-ui/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "lib-ui:build-storybook",
+        "staticFilePath": "dist/storybook/lib-ui",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "lib-ui:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
