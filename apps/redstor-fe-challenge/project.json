@@ -83,10 +83,14 @@
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
         "polyfills": ["zone.js", "zone.js/testing"],
-        "tsConfig": "tsconfig.spec.json",
+        "tsConfig": "apps/redstor-fe-challenge/tsconfig.spec.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["src/favicon.ico", "src/assets"],
-        "styles": ["@angular/material/prebuilt-themes/deeppurple-amber.css", "src/sass/main.scss", "src/styles.scss"],
+        "assets": ["apps/redstor-fe-challenge/src/favicon.ico", "apps/redstor-fe-challenge/src/assets"],
+        "styles": [
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/redstor-fe-challenge/src/sass/main.scss",
+          "apps/redstor-fe-challenge/src/styles.scss"
+        ],
         "scripts": []
       }
     }
