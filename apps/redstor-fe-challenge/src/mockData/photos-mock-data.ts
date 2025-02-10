@@ -1,6 +1,6 @@
 import { IPhoto } from '@app/interfaces';
 
-export const PHOTO_MOCK_DATA: IPhoto[] = [
+export const PHOTOS_MOCK_DATA: IPhoto[] = [
   {
     id: '1',
     width: 400,

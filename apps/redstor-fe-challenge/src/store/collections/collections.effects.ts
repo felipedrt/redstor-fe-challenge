@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { UnsplashService } from '@app/services';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { CollectionsActions } from './collections.actions';
-import { map, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 
 @Injectable()
 export class CollectionsEffects {
@@ -13,15 +13,14 @@ export class CollectionsEffects {
     this.actions$.pipe(
       ofType(CollectionsActions.loadCollections),
       switchMap(({ page, perPage }) =>
-        this.unsplash
-          .listCollections(page, perPage)
-          .pipe(
-            map(result =>
-              result.type === 'success'
-                ? CollectionsActions.loadCollectionsSuccess(result.response.results || [])
-                : CollectionsActions.loadCollectionsFailure()
-            )
-          )
+        this.unsplash.listCollections(page, perPage).pipe(
+          map(result => {
+            return CollectionsActions.loadCollectionsSuccess(result.response?.results || []);
+          }),
+          catchError(error => {
+            return of(CollectionsActions.loadCollectionsFailure());
+          })
+        )
       )
     )
   );

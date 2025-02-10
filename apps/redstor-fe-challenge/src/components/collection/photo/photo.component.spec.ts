@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PhotoComponent } from './photo.component';
 import { provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('PhotoComponent', () => {
   let component: PhotoComponent;
@@ -12,7 +13,7 @@ describe('PhotoComponent', () => {
     await TestBed.configureTestingModule({
       providers: [provideMockStore()],
       declarations: [PhotoComponent],
-      imports: [RouterTestingModule.withRoutes([])]
+      imports: [RouterTestingModule.withRoutes([]), MatProgressBarModule]
     }).compileComponents();
   });
 

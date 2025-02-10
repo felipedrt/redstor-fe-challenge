@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CollectionComponent } from './collection.component';
 import { provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('CollectionComponent', () => {
   let component: CollectionComponent;
@@ -12,7 +13,7 @@ describe('CollectionComponent', () => {
     await TestBed.configureTestingModule({
       providers: [provideMockStore()],
       declarations: [CollectionComponent],
-      imports: [RouterTestingModule.withRoutes([])]
+      imports: [RouterTestingModule.withRoutes([]), MatProgressBarModule]
     }).compileComponents();
   });
 
